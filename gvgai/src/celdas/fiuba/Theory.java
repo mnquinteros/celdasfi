@@ -84,7 +84,7 @@ public class Theory {
 			for (int col = 0; col < 6; col++) {
 				situacionString += casillerosSituacion[fila][col];
 			}
-			situacionString += "\n";
+			situacionString += "|";
 		}
 		return situacionString;
 	}

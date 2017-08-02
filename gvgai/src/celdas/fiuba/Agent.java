@@ -25,6 +25,7 @@ import celdas.fiuba.assets.Graph;
 import celdas.fiuba.assets.Perception;
 import celdas.fiuba.assets.State;
 import celdas.fiuba.assets.Vertex;
+import core.game.Observation;
 import core.game.StateObservationMulti;
 import core.player.AbstractMultiPlayer;
 import ontology.Types.ACTIONS;
@@ -803,7 +804,7 @@ public class Agent extends AbstractMultiPlayer {
 		
 		ArrayList<Theory> teorias = new ArrayList<>(); //gson.fromJson(this.ObtenerPathDeTeorias(), tipoArrayListTeoria);
 		
-		String line = "";
+		String line = ""; //aca estaban las teorias del agente_0
 		try(BufferedReader br = new BufferedReader(new FileReader("resources/preloadedinfo.csv"))) {
 			while((line = br.readLine()) != null ) {
 				teorias.add(Theory.deserialize(line));
@@ -820,9 +821,7 @@ public class Agent extends AbstractMultiPlayer {
 	}
 	
 	private void ObtenerTeoriasPrecargadas(){
-		//Type tipoArrayListTeoria = new TypeToken<ArrayList<Theory>>(){}.getType();
-		ArrayList<Theory> teoriasPrecargadas = new ArrayList<>();//gson.fromJson(this.ObtenerPathDeTeoriasPrecargadas(), tipoArrayListTeoria);
-		
+		ArrayList<Theory> teoriasPrecargadas = new ArrayList<>();
 		String line = "";
 		try(BufferedReader br = new BufferedReader(new FileReader("resources/preloadedinfo.csv"))) {
 			while((line = br.readLine()) != null ) {

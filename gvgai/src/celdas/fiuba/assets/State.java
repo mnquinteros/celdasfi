@@ -20,7 +20,7 @@ public class State {
                 br.append(map[j][i]);
                 j++;
             }
-            br.append("\\|");
+            br.append("|");
             i++;
         }
 		this.stringState = br.toString();
