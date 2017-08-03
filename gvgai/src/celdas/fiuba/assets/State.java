@@ -48,9 +48,6 @@ public class State {
 	
 	public void loadMap() {
 		String[] rows = this.stringState.split("\\|");
-		if (rows.length < 2) {
-			rows = this.stringState.split("\\n");
-		}
 		this.map = new char[6][6];
         int i = 0;
         while (i < 6) {
@@ -61,67 +58,7 @@ public class State {
             }
             i++;
         }
-        //this.cargarSimbolos(situacionEnCasilleros);
 	}
-	
-//	public void cargarSimbolos(char[][] casilleros) {
-//		this.casilleros = new Simbolo[6][6];
-//		StringBuilder sb = new StringBuilder("");
-//
-//		int i = 0;
-//		while (i < 6) {
-//			int j = 0;
-//			while (j < 6) {
-//
-//				char simboloEnCasillero;
-//				simboloEnCasillero = casilleros[i][j];
-//				sb.append(simboloEnCasillero);
-//
-//				switch (simboloEnCasillero) {
-//					case 'A':
-//						this.casilleros[i][j] = new AgenteCero();
-//						break;
-//					case 'B':
-//						this.casilleros[i][j] = new AgenteUno();
-//						break;
-//					case '.':
-//						this.casilleros[i][j] = new CeldaVacia();
-//						break;
-//					case 'w':
-//						this.casilleros[i][j] = new Pared();
-//						break;
-//					case '0':
-//						this.casilleros[i][j] = new Objetivo();
-//						break;
-//					case '1':
-//						this.casilleros[i][j] = new Uno();
-//						break;
-//					case 'X':
-//						this.casilleros[i][j] = new CaracterX();
-//						break;
-//					case 'Y':
-//						this.casilleros[i][j] = new CaracterY();
-//						break;
-//					case 'Z':
-//						this.casilleros[i][j] = new CaracterZ();
-//						break;
-//					case 'P':
-//						this.casilleros[i][j] = new MultiCajaAgenteP();
-//						break;
-//					case 'Q':
-//						this.casilleros[i][j] = new CualquierObjetoMenosObjetivo();
-//						break;
-//					case '?':
-//						this.casilleros[i][j] = new SignoDePregunta();
-//						break;
-//				}
-//				j++;
-//			}
-//			sb.append("\n");
-//			i++;
-//		}
-//		this.state = sb.toString();
-//	}
 	
 	public boolean compare(State state) {
 		return (this.stringState.equals(state.getStringState()));

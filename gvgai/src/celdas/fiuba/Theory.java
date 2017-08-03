@@ -143,7 +143,7 @@ public class Theory {
 		}
 		
 		if (accion.equals(ACTIONS.ACTION_NIL)){
-			this.accion = "nothing";
+			this.accion = "nil";
 		}
 	}
 
