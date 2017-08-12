@@ -208,11 +208,11 @@ public class Theory {
 		Theory result = new Theory();
 		String[] elems =  item.split(",");
 		result.setId(new Integer(elems[0]));
-		result.setIdSitCondicionInicial(new Integer(elems[2]));
 		result.setCondicionInicial(elems[1]);
+		result.setIdSitCondicionInicial(new Integer(elems[2]));
 		result.setAccion(elems[3]);
-		result.setIdSitEfectosPredichos(new Integer(elems[5]));
 		result.setEfectosPredichos(elems[4]);
+		result.setIdSitEfectosPredichos(new Integer(elems[5]));
 		result.setK(new Double(elems[6]));
 		result.setP(new Double(elems[7]));
 		result.setU(new Double(elems[8]));

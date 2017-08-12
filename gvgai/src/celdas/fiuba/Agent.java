@@ -52,6 +52,7 @@ public class Agent extends AbstractMultiPlayer {
 			agregarNuevaSituacion(situacionAnterior);
 		}
 		State situacionActual = this.obtenerSituacionActual();
+		//System.out.println("actual: " + situacionActual.getStringState());
 		ACTIONS ultimaAccion = stateObs.getAvatarLastAction(this.idAgente);
 		if (situacionAnterior != null) {
 			Theory teoriaLocal = null;
@@ -85,6 +86,9 @@ public class Agent extends AbstractMultiPlayer {
 			if (hayTeoriasSimilares) {
 				Theory teoriaIgualALocal = this.buscarTeoriaIgual(teoriaLocal, todasLasTeoriasSimilares);
 				if (teoriaIgualALocal != null) {
+					//System.out.println("Teoria igual a local " + teoriaLocal.getCondicionInicial() +
+					//		" --> " + teoriaLocal.getEfectosPredichos() +
+					//		"  ejecutar:" + teoriaLocal.getAccionComoString());
 					teoriaIgualALocal.setP(teoriaIgualALocal.getP() + 1);
 					for (Theory teoriaSimilar: todasLasTeoriasSimilares) {
 						teoriaSimilar.setK(teoriaSimilar.getK() + 1);

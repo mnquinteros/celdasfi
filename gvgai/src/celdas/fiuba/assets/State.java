@@ -17,7 +17,7 @@ public class State {
         while (i < 6) {
             int j = 0;
             while (j < 6) {
-                br.append(map[j][i]);
+                br.append(map[i][j]);
                 j++;
             }
             br.append("|");
@@ -66,9 +66,22 @@ public class State {
 	
 	public boolean includesElem(State state) {
 		for (int i = 0; i < 6; i++)
-			for (int j = 0; j < 6; j++)
-				if (!(this.getMap()[i][j] == state.getMap()[i][j])) //same map character
+			for (int j = 0; j < 6; j++) {
+				char elem = this.getMap()[i][j];
+				char other = state.getMap()[i][j];
+				if (elem == '?') {
+					//do nothing
+				} else if (elem == 'P') {
+					if (!( other == 'A' || other == 'B' || other == 'Y' || other == 'Z')) {
+						return false;
+					}
+				} else if (elem =='Q') {
+					if (!(other == '0')) {
+						return false;
+					}
+				} else if (!(elem == other)) //same map character
 					return false;
+			}
 		return true;
 	}
 	
