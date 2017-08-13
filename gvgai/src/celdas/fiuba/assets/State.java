@@ -103,7 +103,7 @@ public class State {
                 char simboloOtraSituacion = situacionPropuestaEnCasilleros[fila][col];
                 char simboloSitGeneral;
 
-                if (!(simbolo == simboloOtraSituacion)) {
+                if ( simbolo != simboloOtraSituacion ) {
                     simboloSitGeneral = '?';
                 } else {
                     simboloSitGeneral = simbolo;
@@ -125,42 +125,7 @@ public class State {
 	public String toString() {
 		return this.stringState;
 	}
-	
-//	public int obtenerCantElem(String elementos){
-//		char[][] casilleros = this.getMap();
-//		int cantidadDeElementos = 0;
-//		
-//		for (int fila = 0; fila < 6; fila++){
-//			for (int col = 0; col < 6; col++){
-//				if (casilleros[fila][col] == elementos.charAt(0)) {
-//					cantidadDeElementos++;
-//				}
-//			}
-//		}
-//		return (cantidadDeElementos);
-//	}
-	
-//	public HashMap<String, Integer> obtenerCantElemMapa() {
-//		char[][] casilleros = this.getMap();
-//		HashMap<String, Integer> cantidades = new HashMap<String, Integer>();
-//        int fila = 0;
-//        while (fila < 6) {
-//            int col = 0;
-//            while (col < 6) {
-//                char simbolo = casilleros[fila][col];
-//                if (!cantidades.containsKey(simbolo)) {
-//                    cantidades.put(simbolo, 1);
-//                } else {
-//                    int cantidadActual = cantidades.get(simbolo);
-//                    cantidades.put(simbolo, cantidadActual + 1);
-//                }
-//                col++;
-//            }
-//            fila++;
-//        }
-//        return cantidades;
-//	}
-	
+		
 	public HashMap<Character, ArrayList<Vector2d>> obtenerPosicionesElementos() {
 		char[][] casilleros = this.getMap();
 		HashMap<Character, ArrayList<Vector2d>> posicionesCadaTipoDeElemento = new HashMap<Character, ArrayList<Vector2d>>();

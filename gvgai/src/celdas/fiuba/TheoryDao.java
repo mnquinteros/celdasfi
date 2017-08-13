@@ -11,7 +11,7 @@ import java.util.List;
 public class TheoryDao {
 	
 	private static String PATH_INFO = "resources/agent0.csv";
-	private static String PATH_PRELOADED = "resources/preloadedinfo_.csv";
+	private static String PATH_PRELOADED = "resources/preloadedinfo.csv";
 	
 	public static void save(List<Theory> teorias) {
 		try {

@@ -2,6 +2,7 @@ package celdas.fiuba;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Random;
 
@@ -52,7 +53,6 @@ public class Agent extends AbstractMultiPlayer {
 			agregarNuevaSituacion(situacionAnterior);
 		}
 		State situacionActual = this.obtenerSituacionActual();
-		//System.out.println("actual: " + situacionActual.getStringState());
 		ACTIONS ultimaAccion = stateObs.getAvatarLastAction(this.idAgente);
 		if (situacionAnterior != null) {
 			Theory teoriaLocal = null;
@@ -76,19 +76,12 @@ public class Agent extends AbstractMultiPlayer {
 		
 		if (teoriaLocal != null) {					
 			
-			ArrayList<Theory> teoriasSimilares = this.buscarTeoriasSimilares(teoriaLocal, this.teorias);
-			ArrayList<Theory> teoriasSimilaresPrecargadas = this.buscarTeoriasSimilares(teoriaLocal, this.teoriasPrecargadas);
-			ArrayList<Theory> todasLasTeoriasSimilares = new ArrayList<Theory>();
-			todasLasTeoriasSimilares.addAll(teoriasSimilares);
-			todasLasTeoriasSimilares.addAll(teoriasSimilaresPrecargadas);
+			ArrayList<Theory> todasLasTeoriasSimilares = getAllSimilarTheories(teoriaLocal);
 			
 			boolean hayTeoriasSimilares = (todasLasTeoriasSimilares.size() > 0);			
 			if (hayTeoriasSimilares) {
 				Theory teoriaIgualALocal = this.buscarTeoriaIgual(teoriaLocal, todasLasTeoriasSimilares);
 				if (teoriaIgualALocal != null) {
-					//System.out.println("Teoria igual a local " + teoriaLocal.getCondicionInicial() +
-					//		" --> " + teoriaLocal.getEfectosPredichos() +
-					//		"  ejecutar:" + teoriaLocal.getAccionComoString());
 					teoriaIgualALocal.setP(teoriaIgualALocal.getP() + 1);
 					for (Theory teoriaSimilar: todasLasTeoriasSimilares) {
 						teoriaSimilar.setK(teoriaSimilar.getK() + 1);
@@ -163,6 +156,17 @@ public class Agent extends AbstractMultiPlayer {
 		}
 	}	
 	
+	private ArrayList<Theory> getAllSimilarTheories(Theory teoriaLocal) {
+		
+		ArrayList<Theory> teoriasSimilares = this.buscarTeoriasSimilares(teoriaLocal, this.teorias);
+		ArrayList<Theory> teoriasSimilaresPrecargadas = this.buscarTeoriasSimilares(teoriaLocal, this.teoriasPrecargadas);
+		ArrayList<Theory> todasLasTeoriasSimilares = new ArrayList<Theory>();
+		todasLasTeoriasSimilares.addAll(teoriasSimilares);
+		todasLasTeoriasSimilares.addAll(teoriasSimilaresPrecargadas);
+		
+		return todasLasTeoriasSimilares;
+	}
+
 	private ArrayList<Theory> buscarTeoriasSimilares(Theory teoriaLocal, ArrayList<Theory> listaDeTeorias) {
 		
 		ArrayList<Theory> teoriasSimilares = new ArrayList<Theory>();
@@ -371,7 +375,7 @@ public class Agent extends AbstractMultiPlayer {
 
 	private ontology.Types.ACTIONS movimientoAleatorio(StateObservationMulti stateObs, State situacionActual){
 		ArrayList<ACTIONS> accionesPosibles = stateObs.getAvailableActions(this.idAgente);
-		ArrayList<ACTIONS> accionesNoPosibles = new ArrayList<>();
+		HashSet<ACTIONS> accionesNoPosibles = new HashSet<>();
 		
 		while (accionesNoPosibles.size() != 4) {
 			ACTIONS accionRandom = ACTIONS.values()[new Random().nextInt(accionesPosibles.size())];
@@ -392,6 +396,8 @@ public class Agent extends AbstractMultiPlayer {
 		}
 		
 		return ACTIONS.ACTION_NIL;
+		//accionesPosibles.removeAll(accionesNoPosibles);
+		//return accionesPosibles.get(0);
 	}
 	
 	boolean sirveLaAccion(State condicionInicial, ACTIONS accion) {
