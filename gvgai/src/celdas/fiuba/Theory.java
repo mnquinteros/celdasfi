@@ -5,7 +5,7 @@ import ontology.Types.ACTIONS;
 
 public class Theory {
 	private int id;
-	private String initialState;
+	private String condicionInicial;
 	private int idSitCondicionInicial;
 	private String accion;
 	private String efectosPredichos;
@@ -54,15 +54,15 @@ public class Theory {
 	}
 	
 	public String getCondicionInicial() {
-		return initialState;
+		return condicionInicial;
 	}
 
 	public void setCondicionInicial(String condicionInicial) {
-		this.initialState = condicionInicial;
+		this.condicionInicial = condicionInicial;
 	}
 	
 	public void setCondicionInicial(State condicionInicial) {
-		setCondicionInicial(obtenerSituacionComoString(condicionInicial));
+		setCondicionInicial(condicionInicial.getStringState());// obtenerSituacionComoString(condicionInicial));
 	}
 	
 	public String getEfectosPredichos() {
@@ -74,7 +74,7 @@ public class Theory {
 	}
 	
 	public void setEfectosPredichos(State efectosPredichos) {
-		this.setEfectosPredichos(obtenerSituacionComoString(efectosPredichos));
+		this.setEfectosPredichos(efectosPredichos.getStringState());// obtenerSituacionComoString(efectosPredichos));
 	}
 	
 	private String obtenerSituacionComoString(State situacion) {
@@ -181,43 +181,43 @@ public class Theory {
 	}
 	
 	public State getSitCondicionInicial() {
-		return new State(this.idSitCondicionInicial, this.initialState);
+		return new State(this.idSitCondicionInicial, this.condicionInicial);
 	}
 	
 	public State getSitEfectosPredichos() {
 		return new State(this.idSitEfectosPredichos, this.efectosPredichos);
 	}
 	
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append(this.id).append(",")
-		.append(this.getCondicionInicial()).append(",")
-		.append(this.getIdSitCondicionInicial()).append(",")
-		.append(this.getAccionComoString()).append(",")
-		.append(this.getEfectosPredichos()).append(",")
-		.append(this.getIdSitEfectosPredichos()).append(",")
-		.append(this.getK()).append(",")
-		.append(this.getP()).append(",")
-		.append(this.getU()).append("\n");
-		
-		return builder.toString();
-	}
+//	public String toString() {
+//		StringBuilder builder = new StringBuilder();
+//		builder.append(this.id).append(",")
+//		.append(this.getCondicionInicial()).append(",")
+//		.append(this.getIdSitCondicionInicial()).append(",")
+//		.append(this.getAccionComoString()).append(",")
+//		.append(this.getEfectosPredichos()).append(",")
+//		.append(this.getIdSitEfectosPredichos()).append(",")
+//		.append(this.getK()).append(",")
+//		.append(this.getP()).append(",")
+//		.append(this.getU()).append("\n");
+//		
+//		return builder.toString();
+//	}
 	
-	public static Theory deserialize(String item) {
-		
-		Theory result = new Theory();
-		String[] elems =  item.split(",");
-		result.setId(new Integer(elems[0]));
-		result.setCondicionInicial(elems[1]);
-		result.setIdSitCondicionInicial(new Integer(elems[2]));
-		result.setAccion(elems[3]);
-		result.setEfectosPredichos(elems[4]);
-		result.setIdSitEfectosPredichos(new Integer(elems[5]));
-		result.setK(new Double(elems[6]));
-		result.setP(new Double(elems[7]));
-		result.setU(new Double(elems[8]));
-		
-		return result;
-	}	
+//	public static Theory deserialize(String item) {
+//		
+//		Theory result = new Theory();
+//		String[] elems =  item.split(",");
+//		result.setId(new Integer(elems[0]));
+//		result.setCondicionInicial(elems[1]);
+//		result.setIdSitCondicionInicial(new Integer(elems[2]));
+//		result.setAccion(elems[3]);
+//		result.setEfectosPredichos(elems[4]);
+//		result.setIdSitEfectosPredichos(new Integer(elems[5]));
+//		result.setK(new Double(elems[6]));
+//		result.setP(new Double(elems[7]));
+//		result.setU(new Double(elems[8]));
+//		
+//		return result;
+//	}	
 
 }
