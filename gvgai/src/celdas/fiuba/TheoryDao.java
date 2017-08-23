@@ -17,12 +17,12 @@ import com.google.gson.reflect.TypeToken;
 public class TheoryDao {
 	
 	private static Gson gson = new GsonBuilder().setPrettyPrinting().create();
-	private static String PATH_INFO = "resources/agent0.json";
+	private static String PREFIX_PATH_INFO = "resources/agent";
 	private static String PATH_PRELOADED = "resources/preloadedinfo.json";
 	
-	public static void save(List<Theory> teorias) {
+	public static void save(Integer id, List<Theory> teorias) {
 		try {
-			FileOutputStream out = new FileOutputStream(PATH_INFO);
+			FileOutputStream out = new FileOutputStream(PREFIX_PATH_INFO + id + ".json");
 			out.write("[\n".getBytes());
 			
 			for (int i = 0; i < teorias.size(); i++) {
@@ -85,10 +85,10 @@ public class TheoryDao {
 //		}
 	}
 	
-	public static void loadTheories(List<Theory> result) {
+	public static void loadTheories(Integer id, List<Theory> result) {
 		
 		Type arrayListTheoryType = new TypeToken<ArrayList<Theory>>(){}.getType();
-		ArrayList<Theory> dynamicTheories = gson.fromJson(getJsonText(PATH_INFO), arrayListTheoryType);
+		ArrayList<Theory> dynamicTheories = gson.fromJson(getJsonText(PREFIX_PATH_INFO + id + ".json"), arrayListTheoryType);
 		
 		if (dynamicTheories != null && dynamicTheories.size() > 0){
 			result.clear();

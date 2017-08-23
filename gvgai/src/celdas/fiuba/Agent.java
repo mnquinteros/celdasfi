@@ -46,7 +46,7 @@ public class Agent extends AbstractMultiPlayer {
 		this.posX = (int)(stateObs.getAvatarPosition(this.idAgente).x) / this.mapa.getSpriteSizeWidthInPixels();
         this.posY = (int)(stateObs.getAvatarPosition(this.idAgente).y) / this.mapa.getSpriteSizeHeightInPixels();
 		
-		TheoryDao.loadTheories(this.teorias);
+		TheoryDao.loadTheories(idAgente, this.teorias);
         this.knowledgeBase = this.cargarBaseDeConocimiento();
         
 		if (this.situacionAnterior != null) {
@@ -56,7 +56,7 @@ public class Agent extends AbstractMultiPlayer {
 		ACTIONS ultimaAccion = stateObs.getAvatarLastAction(this.idAgente);
 		if (situacionAnterior != null) {
 			Theory teoriaLocal = null;
-			if (sirveLaAccion(situacionAnterior, ultimaAccion)) {
+			if (!sirveLaAccion(situacionAnterior, ultimaAccion)) {
 				teoriaLocal = new Theory(this.teorias.size()+this.teoriasPrecargadas.size()+ 1, this.situacionAnterior, ultimaAccion, situacionActual, 1, 1, 
 									UtililyCalculator.calcularUtilidadTeoria(this.situacionAnterior, ultimaAccion, situacionActual));
 			} else {
@@ -68,7 +68,7 @@ public class Agent extends AbstractMultiPlayer {
 
 		ACTIONS siguienteAccion = actualizarEstrategia(stateObs, situacionActual, this.generarGrafoDeTeorias());
 		this.situacionAnterior = situacionActual;
-		TheoryDao.save(this.teorias);
+		TheoryDao.save(idAgente, this.teorias);
 		return siguienteAccion;
 	}
 	
@@ -112,7 +112,7 @@ public class Agent extends AbstractMultiPlayer {
 						if (teoriaLocal.getU() == 0.0) {
 							utilidadTeoriaMutante = 0.0;
 						} else {
-							if ( sirveLaAccion(CITeoriaLocal, teoriaLocal.getAccionComoAction()) ) {
+							if ( !sirveLaAccion(CITeoriaLocal, teoriaLocal.getAccionComoAction()) ) {
 								utilidadTeoriaMutante = UtililyCalculator.calcularUtilidadTeoria(CITeoriaLocal, teoriaLocal.getAccionComoAction(), EPTeoriaMutante);
 							} else {
 								utilidadTeoriaMutante = 0.0;
