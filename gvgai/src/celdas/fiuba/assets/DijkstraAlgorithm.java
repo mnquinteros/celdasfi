@@ -54,18 +54,13 @@ public class DijkstraAlgorithm {
     }
 
     private double getDistance(Vertex node, Vertex target) {
-        try {    
-        	for (Edge edge : edges) {
-                    if (edge.getSource().equals(node)
+        for (Edge edge : edges) {
+        	 if (edge.getSource().equals(node)
                                     && edge.getDestination().equals(target)) {
-                            return edge.getWeight();
-                    }
-            }
-        } catch (NullPointerException e) {
-			// TODO: handle exception
-		}
-        return 100.0;
-         //   throw new RuntimeException("Should not happen");
+                  return edge.getWeight();
+             }
+        }
+        throw new RuntimeException("Should not happen");
     }
 
     private List<Vertex> getNeighbors(Vertex node) {
@@ -94,6 +89,9 @@ public class DijkstraAlgorithm {
     }
 
     private boolean isSettled(Vertex vertex) {
+    		if (vertex == null) {
+    			System.out.println("DijkstraAlgorithm.isSettled() vertex is null");
+    		}
             return settledNodes.contains(vertex);
     }
 

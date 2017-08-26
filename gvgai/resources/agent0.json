@@ -17,8 +17,8 @@
   "accion": "nil",
   "efectosPredichos": "??w...|??w.w.|??w.1B|??wA..|??wwww|??????|",
   "idSitEfectosPredichos": 2,
-  "k": 184.0,
-  "p": 2.0,
+  "k": 187.0,
+  "p": 3.0,
   "u": 0.3125
 },
 {
@@ -611,8 +611,8 @@
   "accion": "nil",
   "efectosPredichos": "??w...|??w.w.|??w.1.|??wA..|??wwww|??????|",
   "idSitEfectosPredichos": 1,
-  "k": 184.0,
-  "p": 182.0,
+  "k": 187.0,
+  "p": 184.0,
   "u": 0.3125
 },
 {
@@ -2459,8 +2459,8 @@
   "accion": "down",
   "efectosPredichos": "??w...|??w.w.|??w.1.|??wA..|??wwww|??????|",
   "idSitEfectosPredichos": 1,
-  "k": 3.0,
-  "p": 3.0,
+  "k": 5.0,
+  "p": 5.0,
   "u": 0.3125
 },
 {

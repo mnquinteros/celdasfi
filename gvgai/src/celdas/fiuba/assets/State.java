@@ -61,11 +61,14 @@ public class State {
 	}
 	
 	public boolean compare(State state) {
+		if (state.getStringState() == null) {
+			System.out.println("State.compare() st is null");
+		}
 		return (this.stringState.equals(state.getStringState()));
 	}
 	
 	public boolean includesElem(State state) {
-		for (int i = 0; i < 6; i++)
+		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 6; j++) {
 				char elem = this.getMap()[i][j];
 				char other = state.getMap()[i][j];
@@ -79,17 +82,44 @@ public class State {
 					if (!(other == '0')) {
 						return false;
 					}
-				} else if (!(elem == other)) //same map character
+				} else if (!(elem == other)) {//same map character
 					return false;
+				}
 			}
+		}
 		return true;
 	}
+	
+	public boolean isSamePosition(State situacion) {
+		char[][] casilleros, casillerosOtraSituacion;
+		casilleros = this.getMap();
+		casillerosOtraSituacion  = situacion.getMap();
+		int i, j;
+		
+		i=0;
+        while (i < 6) {
+            j = 0;
+            while (j < 6) {
+                char simbolo = casilleros[i][j];
+                char simboloOtraSituacion = casillerosOtraSituacion[i][j];
+
+                boolean simboloPared = (simbolo == 'w') || (simboloOtraSituacion =='w');
+                boolean simbolosDistintos = simbolo != simboloOtraSituacion;
+                if (simboloPared && simbolosDistintos)
+                    return false;
+                j++;
+            }
+            i++;
+        }
+        return true;
+	}
+
 	
 	public State generalizar(State situacion, int idNuevaSituacion) {
 		char[][] situacionEnCasilleros = this.getMap();
 		char[][] situacionPropuestaEnCasilleros = situacion.getMap();
-		
-		if (situacionEnCasilleros[3][3] != situacionPropuestaEnCasilleros[3][3])
+
+		if (situacionEnCasilleros != situacionPropuestaEnCasilleros)
 			return null;
 		
 		int cantSimbolosRepetidos = 0;
@@ -126,7 +156,7 @@ public class State {
 		return this.stringState;
 	}
 		
-	public HashMap<Character, ArrayList<Vector2d>> obtenerPosicionesElementos() {
+	public HashMap<Character, ArrayList<Vector2d>> getElementPositions() {
 		char[][] casilleros = this.getMap();
 		HashMap<Character, ArrayList<Vector2d>> posicionesCadaTipoDeElemento = new HashMap<Character, ArrayList<Vector2d>>();
         int fila = 0;
@@ -151,32 +181,4 @@ public class State {
         return posicionesCadaTipoDeElemento;
 	}
 	
-	public boolean mismaPosicionPersonaje(State situacion) {
-		char[][] casilleros, casillerosOtraSituacion;
-		casilleros = this.getMap();
-		casillerosOtraSituacion  = situacion.getMap();
-		int i, j;
-		
-		i=0;
-        while (i < 6) {
-            j = 0;
-            while (j < 6) {
-                char simbolo = casilleros[i][j];
-                char simboloOtraSituacion = casillerosOtraSituacion[i][j];
-
-                boolean simboloPared;
-                if ((simbolo == 'w') || (simboloOtraSituacion =='w')) simboloPared = true;
-                else simboloPared = false;
-
-                boolean simbolosDistintos;
-                if ((!(simbolo == simboloOtraSituacion))) simbolosDistintos = true;
-                else simbolosDistintos = false;
-                if (simboloPared && simbolosDistintos)
-                    return false;
-                j++;
-            }
-            i++;
-        }
-        return true;
-	}
 }

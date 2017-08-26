@@ -10,23 +10,20 @@ import tools.Vector2d;
 
 public class UtililyCalculator {
 	
-	public static double calcularUtilidadTeoria(State condicionInicial, ACTIONS accion, State efectosPredichos) { //
-
-//		if (this.sirveLaAccion(condicionInicial, accion))
-//			return 0.0;
+	public static double getTheoryScore(State condition, ACTIONS action, State effect) { //
 		
-		HashMap<Character, ArrayList<Vector2d>> posicionesCadaTipoDeElementoCI, posicionesCadaTipoDeElementoEP;
-		posicionesCadaTipoDeElementoCI = condicionInicial.obtenerPosicionesElementos();
-		posicionesCadaTipoDeElementoEP = efectosPredichos.obtenerPosicionesElementos();
+		HashMap<Character, ArrayList<Vector2d>> positionsIC, positionsEff;
+		positionsIC = condition.getElementPositions();
+		positionsEff = effect.getElementPositions();
 		
 		int cantidadCajasSueltasCI = 0;
 		int cantidadCajasEnObjetivosCI = 0;
 		
-		if (posicionesCadaTipoDeElementoCI.containsKey("1"))
-			cantidadCajasSueltasCI = posicionesCadaTipoDeElementoCI.get("1").size();
+		if (positionsIC.containsKey("1"))
+			cantidadCajasSueltasCI = positionsIC.get("1").size();
 		
-		if (posicionesCadaTipoDeElementoCI.containsKey("X"))
-			cantidadCajasEnObjetivosCI = posicionesCadaTipoDeElementoCI.get("X").size();
+		if (positionsIC.containsKey("X"))
+			cantidadCajasEnObjetivosCI = positionsIC.get("X").size();
 				
 		int cantidadCajasCI = cantidadCajasSueltasCI + cantidadCajasEnObjetivosCI;
 		
@@ -34,18 +31,18 @@ public class UtililyCalculator {
 		int cantidadCajasSueltasEP = 0;
 		int cantidadCajasEnObjetivosEP = 0;
 		
-		if (posicionesCadaTipoDeElementoEP.containsKey("1"))
-			cantidadCajasSueltasEP = posicionesCadaTipoDeElementoEP.get("1").size();
+		if (positionsEff.containsKey("1"))
+			cantidadCajasSueltasEP = positionsEff.get("1").size();
 		
-		if (posicionesCadaTipoDeElementoEP.containsKey("X"))
-			cantidadCajasEnObjetivosEP = posicionesCadaTipoDeElementoEP.get("X").size();
+		if (positionsEff.containsKey("X"))
+			cantidadCajasEnObjetivosEP = positionsEff.get("X").size();
 				
 		int cantidadCajasEP = cantidadCajasSueltasEP + cantidadCajasEnObjetivosEP;
 
 		
 		boolean habiaCajas = (cantidadCajasCI > 0);
 		boolean hayCajas = (cantidadCajasEP > 0);
-		boolean personajeSeMovio = (!(condicionInicial.mismaPosicionPersonaje(efectosPredichos)));
+		boolean personajeSeMovio = (!(condition.isSamePosition(effect)));
 		
 		if (!hayCajas) {
 			if (habiaCajas) {
@@ -57,9 +54,9 @@ public class UtililyCalculator {
 					return 0.125;
 			}
 		} else {
-			return calcularUtilidadSiHayCajas(posicionesCadaTipoDeElementoCI, posicionesCadaTipoDeElementoEP,
+			return calcularUtilidadSiHayCajas(positionsIC, positionsEff,
 					cantidadCajasSueltasCI, cantidadCajasSueltasEP, cantidadCajasEnObjetivosCI, cantidadCajasEnObjetivosEP,
-					condicionInicial, efectosPredichos);
+					condition, effect);
 		}
 	}
 	
@@ -179,7 +176,7 @@ public class UtililyCalculator {
 		if (seAlejoDeLasCajas) {
 			return 0.25;
 		} else {
-			boolean seMovioElPersonaje = (!(condicionInicial.mismaPosicionPersonaje(efectosPredichos)));
+			boolean seMovioElPersonaje = (!(condicionInicial.isSamePosition(efectosPredichos)));
 			if (!seMovioElPersonaje)
 				return 0.3125;
 			else
@@ -296,7 +293,7 @@ public class UtililyCalculator {
 		if (aumentoDistanciaCajasObjetivos) {
 			return 0.5625;
 		} else {
-			boolean seMovioPersonaje = (!(condicionInicial.mismaPosicionPersonaje(efectosPredichos)));
+			boolean seMovioPersonaje = (!(condicionInicial.isSamePosition(efectosPredichos)));
 			if (!seMovioPersonaje)
 				return 0.625;
 			else

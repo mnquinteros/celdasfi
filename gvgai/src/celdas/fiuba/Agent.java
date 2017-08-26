@@ -21,65 +21,57 @@ import tools.Vector2d;
 
 public class Agent extends AbstractMultiPlayer {
 	
-	private int posX, posY, idAgente;
-	private ArrayList<Theory> teorias, teoriasPrecargadas, teoriasSinUtil;
-	private ArrayList<State> knowledgeBase;
-	private ArrayList<Vector2d> posicionesObjetivos;
-	private ArrayList<Integer> idObjetivTomados = new ArrayList<Integer>();
-	private Perception mapa;
-	private State situacionAnterior = null;
-	private Strategy estrategia = new Strategy();
-	
 	public Agent(StateObservationMulti stateObs, ElapsedCpuTimer elapsedTimer, int playerID) {
-		this.mapa = new Perception(stateObs);
-		this.teorias = new ArrayList<Theory>();
-		this.teoriasPrecargadas = new ArrayList<Theory>();
-		this.teoriasSinUtil = new ArrayList<Theory>();
-		this.idAgente = playerID;
-		this.posicionesObjetivos = mapa.getPosicionesObjetivos();
-		TheoryDao.getPreloadedTheories(this.teoriasPrecargadas, this.teoriasSinUtil);
+		
+		this.idAgent = playerID;
+		this.env = new Perception(stateObs);
+		this.theories = new ArrayList<Theory>();
+		this.preloadedTheories = new ArrayList<Theory>();
+		this.uselessTheories = new ArrayList<Theory>();
+		this.targetPos = env.getPosicionesObjetivos();
+		TheoryDao.getPreloadedTheories(this.preloadedTheories, this.uselessTheories);
 	}
 	
 	@Override
 	public ACTIONS act(StateObservationMulti stateObs, ElapsedCpuTimer elapsedTimer){
-		this.mapa =  new Perception(stateObs);
-		this.posX = (int)(stateObs.getAvatarPosition(this.idAgente).x) / this.mapa.getSpriteSizeWidthInPixels();
-        this.posY = (int)(stateObs.getAvatarPosition(this.idAgente).y) / this.mapa.getSpriteSizeHeightInPixels();
 		
-		TheoryDao.loadTheories(idAgente, this.teorias);
-        this.knowledgeBase = this.cargarBaseDeConocimiento();
+		this.loadEnviroment(stateObs);
+		
+		TheoryDao.loadTheories(idAgent, this.theories);
+        this.knowledgeBase = this.loadKnowledgeBase();
         
-		if (this.situacionAnterior != null) {
-			agregarNuevaSituacion(situacionAnterior);
+		if (this.lastState != null) {
+			addNewState(lastState);
 		}
-		State situacionActual = this.obtenerSituacionActual();
-		ACTIONS ultimaAccion = stateObs.getAvatarLastAction(this.idAgente);
-		if (situacionAnterior != null) {
+		State currentState = this.obtenerSituacionActual();
+		ACTIONS lastAction = stateObs.getAvatarLastAction(this.idAgent);
+		if (lastState != null) {
 			Theory teoriaLocal = null;
-			if (!sirveLaAccion(situacionAnterior, ultimaAccion)) {
-				teoriaLocal = new Theory(this.teorias.size()+this.teoriasPrecargadas.size()+ 1, this.situacionAnterior, ultimaAccion, situacionActual, 1, 1, 
-									UtililyCalculator.calcularUtilidadTeoria(this.situacionAnterior, ultimaAccion, situacionActual));
+			if (!sirveLaAccion(lastState, lastAction)) {
+				teoriaLocal = new Theory(this.theories.size()+this.preloadedTheories.size()+ 1, this.lastState, lastAction, currentState, 1, 1, 
+									UtililyCalculator.getTheoryScore(this.lastState, lastAction, currentState));
 			} else {
-				teoriaLocal = new Theory(this.teorias.size()+this.teoriasPrecargadas.size()+ 1, this.situacionAnterior, ultimaAccion, situacionActual, 1, 1, 
+				teoriaLocal = new Theory(this.theories.size()+this.preloadedTheories.size()+ 1, this.lastState, lastAction, currentState, 1, 1, 
 						0.0);
 			}
 			evaluarTeoria(teoriaLocal);
 		}
 
-		ACTIONS siguienteAccion = actualizarEstrategia(stateObs, situacionActual, this.generarGrafoDeTeorias());
-		this.situacionAnterior = situacionActual;
-		TheoryDao.save(idAgente, this.teorias);
+		ACTIONS siguienteAccion = actualizarEstrategia(stateObs, currentState, this.generarGrafoDeTeorias());
+		this.lastState = currentState;
+		TheoryDao.save(idAgent, this.theories);
 		return siguienteAccion;
 	}
 	
 	private void evaluarTeoria(Theory teoriaLocal) {
 		
-		if (teoriaLocal != null) {					
-			
+		if (teoriaLocal != null) {	
 			ArrayList<Theory> todasLasTeoriasSimilares = getAllSimilarTheories(teoriaLocal);
 			
-			boolean hayTeoriasSimilares = (todasLasTeoriasSimilares.size() > 0);			
+			boolean hayTeoriasSimilares = (todasLasTeoriasSimilares.size() > 0);
+			
 			if (hayTeoriasSimilares) {
+				
 				Theory teoriaIgualALocal = this.buscarTeoriaIgual(teoriaLocal, todasLasTeoriasSimilares);
 				if (teoriaIgualALocal != null) {
 					teoriaIgualALocal.setP(teoriaIgualALocal.getP() + 1);
@@ -88,7 +80,7 @@ public class Agent extends AbstractMultiPlayer {
 					}
 				} else {
 					
-					this.teorias.add(teoriaLocal);	
+					this.theories.add(teoriaLocal);	
 					
 					State CITeoriaLocal = teoriaLocal.getSitCondicionInicial();					
 					State EPTeoriaLocal = teoriaLocal.getSitEfectosPredichos();
@@ -113,7 +105,7 @@ public class Agent extends AbstractMultiPlayer {
 							utilidadTeoriaMutante = 0.0;
 						} else {
 							if ( !sirveLaAccion(CITeoriaLocal, teoriaLocal.getAccionComoAction()) ) {
-								utilidadTeoriaMutante = UtililyCalculator.calcularUtilidadTeoria(CITeoriaLocal, teoriaLocal.getAccionComoAction(), EPTeoriaMutante);
+								utilidadTeoriaMutante = UtililyCalculator.getTheoryScore(CITeoriaLocal, teoriaLocal.getAccionComoAction(), EPTeoriaMutante);
 							} else {
 								utilidadTeoriaMutante = 0.0;
 							}
@@ -133,7 +125,7 @@ public class Agent extends AbstractMultiPlayer {
 						if (teoriaIgualAMutante != null) {
 							teoriaIgualAMutante.setP(teoriaIgualAMutante.getP() + 1);
 						} else {
-							this.teorias.add(teoriaMutante);
+							this.theories.add(teoriaMutante);
 						}
 						
 					} else {
@@ -148,9 +140,9 @@ public class Agent extends AbstractMultiPlayer {
 									
 				}
 			} else {
-				this.teorias.add(teoriaLocal);
+				this.theories.add(teoriaLocal);
 				if (teoriaLocal.getU() == 0) {
-					this.teoriasSinUtil.add(teoriaLocal);
+					this.uselessTheories.add(teoriaLocal);
 				}
 			}
 		}
@@ -158,8 +150,8 @@ public class Agent extends AbstractMultiPlayer {
 	
 	private ArrayList<Theory> getAllSimilarTheories(Theory teoriaLocal) {
 		
-		ArrayList<Theory> teoriasSimilares = this.buscarTeoriasSimilares(teoriaLocal, this.teorias);
-		ArrayList<Theory> teoriasSimilaresPrecargadas = this.buscarTeoriasSimilares(teoriaLocal, this.teoriasPrecargadas);
+		ArrayList<Theory> teoriasSimilares = this.buscarTeoriasSimilares(teoriaLocal, this.theories);
+		ArrayList<Theory> teoriasSimilaresPrecargadas = this.buscarTeoriasSimilares(teoriaLocal, this.preloadedTheories);
 		ArrayList<Theory> todasLasTeoriasSimilares = new ArrayList<Theory>();
 		todasLasTeoriasSimilares.addAll(teoriasSimilares);
 		todasLasTeoriasSimilares.addAll(teoriasSimilaresPrecargadas);
@@ -213,7 +205,7 @@ public class Agent extends AbstractMultiPlayer {
 			int idSitDestino = caminoSituaciones.get(nSitOrigen + 1).getId();
 			
 			boolean existeTeoria = false;
-			for (Theory teoria: this.teorias) {
+			for (Theory teoria: this.theories) {
 				if (teoria.getIdSitCondicionInicial() == idSitOrigen
 						&& teoria.getIdSitEfectosPredichos() == idSitDestino) {
 					camino.add(teoria);
@@ -223,7 +215,7 @@ public class Agent extends AbstractMultiPlayer {
 			}
 			
 			if (!existeTeoria) {
-				for (Theory teoria: this.teoriasPrecargadas) {
+				for (Theory teoria: this.preloadedTheories) {
 					if (teoria.getIdSitCondicionInicial() == idSitOrigen
 							&& teoria.getIdSitEfectosPredichos() == idSitDestino) {
 						camino.add(teoria);
@@ -261,7 +253,7 @@ public class Agent extends AbstractMultiPlayer {
 				return this.movimientoAleatorio(stateObs, situacionActual);
 			}
 		} else {
-			Theory teoriaNuevoObjetivo = UtililyCalculator.obtenerTeoriaConMayorUtilidad(this.teorias);
+			Theory teoriaNuevoObjetivo = UtililyCalculator.obtenerTeoriaConMayorUtilidad(this.theories);
 
 			if (teoriaNuevoObjetivo == null) {
 				return this.movimientoAleatorio(stateObs, situacionActual); 
@@ -331,12 +323,11 @@ public class Agent extends AbstractMultiPlayer {
 		 	
 	}
 	
-	private ArrayList<State> cargarBaseDeConocimiento() {
+	private ArrayList<State> loadKnowledgeBase() {
 		ArrayList<State> situacionesAcargar = new ArrayList<State>();
 		HashMap<Integer,State> idSituaciones = new HashMap<Integer,State>();
-		for (Theory teoria: teorias) {
+		for (Theory teoria: theories) {
 			if (teoria != null) {
-				
 				State condicionInicial = teoria.getSitCondicionInicial();
 				idSituaciones.put(condicionInicial.getId(), condicionInicial);
 
@@ -344,7 +335,7 @@ public class Agent extends AbstractMultiPlayer {
 				idSituaciones.put(efectosPredichos.getId(), efectosPredichos);
 			}
 		}
-		for (Theory teoriaPrecargada: this.teoriasPrecargadas) {
+		for (Theory teoriaPrecargada: this.preloadedTheories) {
 			if (teoriaPrecargada != null) {
 								
 				State condicionInicial = teoriaPrecargada.getSitCondicionInicial();
@@ -355,13 +346,13 @@ public class Agent extends AbstractMultiPlayer {
 			}
 		}
 		
-		for (State situacion: idSituaciones.values())
-			situacionesAcargar.add(situacion);
+		//for (State situacion: idSituaciones.values())
+		situacionesAcargar.addAll(idSituaciones.values());
 		
 		return situacionesAcargar;
 	}
 	
-	public void agregarNuevaSituacion(State situacion) {
+	public void addNewState(State situacion) {
 		boolean agregar = true;
 		for (State s: this.knowledgeBase) {
 			if (s.compare(situacion)) {
@@ -374,7 +365,7 @@ public class Agent extends AbstractMultiPlayer {
 	}
 
 	private ontology.Types.ACTIONS movimientoAleatorio(StateObservationMulti stateObs, State situacionActual){
-		ArrayList<ACTIONS> accionesPosibles = stateObs.getAvailableActions(this.idAgente);
+		ArrayList<ACTIONS> accionesPosibles = stateObs.getAvailableActions(this.idAgent);
 		HashSet<ACTIONS> accionesNoPosibles = new HashSet<>();
 		
 		while (accionesNoPosibles.size() != 4) {
@@ -396,12 +387,10 @@ public class Agent extends AbstractMultiPlayer {
 		}
 		
 		return ACTIONS.ACTION_NIL;
-		//accionesPosibles.removeAll(accionesNoPosibles);
-		//return accionesPosibles.get(0);
 	}
 	
 	boolean sirveLaAccion(State condicionInicial, ACTIONS accion) {
-		for (Theory teoriaConUtilidadNula: this.teoriasSinUtil) {
+		for (Theory teoriaConUtilidadNula: this.uselessTheories) {
 			ACTIONS accionTeoriaUtilidadNula = teoriaConUtilidadNula.getAccionComoAction();
 			
 			if (accion.equals(accionTeoriaUtilidadNula)) {
@@ -416,12 +405,12 @@ public class Agent extends AbstractMultiPlayer {
 	}
 			
 	private char[][] cargarSituacionActual() {
-		char[][] nivel = mapa.getLevel();
+		char[][] nivel = env.getLevel();
 		char[][] situacion = new char[nivel.length][nivel.length];
 		int columnaAgente = (int) (this.posX);
 		int filaAgente = (int)(this.posY);
-		int anchoMapa = mapa.getLevelWidth();
-		int altoMapa = mapa.getLevelHeight();
+		int anchoMapa = env.getLevelWidth();
+		int altoMapa = env.getLevelHeight();
 		int filaSit = 0;
 		
 		for (int fila = filaAgente - 3; fila < filaAgente + 3; fila++) {
@@ -430,13 +419,13 @@ public class Agent extends AbstractMultiPlayer {
 				Vector2d posAgente = new Vector2d(col,fila);				
 				if (fila >= 0 && fila < altoMapa && col >= 0 && col < anchoMapa) {
 					char simboloVisible = nivel[fila][col];
-					if (simboloVisible == '1' && this.posicionesObjetivos.contains(posAgente)) {
+					if (simboloVisible == '1' && this.targetPos.contains(posAgente)) {
 						situacion[filaSit][colSit] = 'X';
 					} else {
-						if (simboloVisible == 'A' && this.posicionesObjetivos.contains(posAgente)) {
+						if (simboloVisible == 'A' && this.targetPos.contains(posAgente)) {
 							situacion[filaSit][colSit] = 'Y';
 						} else {
-							if (simboloVisible == 'B' && this.posicionesObjetivos.contains(posAgente)) {
+							if (simboloVisible == 'B' && this.targetPos.contains(posAgente)) {
 								situacion[filaSit][colSit] = 'Z';
 							} else {
 								situacion[filaSit][colSit] = simboloVisible;
@@ -478,7 +467,7 @@ public class Agent extends AbstractMultiPlayer {
 			idVertices.put(idSituacion, verticeSituacion);
 		}
 		
-		for (Theory teoria: this.teorias) {
+		for (Theory teoria: this.theories) {
 			if (teoria != null) {
 				if (teoria.getU() != 0) {
 					String idTeoria = Integer.toString(teoria.getId());
@@ -486,6 +475,9 @@ public class Agent extends AbstractMultiPlayer {
 					String idSitDestino = Integer.toString(teoria.getIdSitEfectosPredichos());
 					Vertex verticeOrigen = idVertices.get(idSitOrigen);
 					Vertex verticeDestino = idVertices.get(idSitDestino);
+					if (verticeDestino == null) {
+						System.out.println("Agent.generarGrafoDeTeorias() vertice dest es null " + idSitDestino);
+					}
 					Double peso = (teoria.getK()-teoria.getP())/teoria.getK();
 					Edge aristaTeoria = new Edge(idTeoria, verticeOrigen, verticeDestino, peso);
 					lazos.add(aristaTeoria);
@@ -494,4 +486,21 @@ public class Agent extends AbstractMultiPlayer {
 		}
 		return new Graph(vertices, lazos);
 	}
+	
+	private void loadEnviroment(StateObservationMulti stateObs) {
+		
+		this.env =  new Perception(stateObs);
+		this.posX = (int)(stateObs.getAvatarPosition(this.idAgent).x) / this.env.getSpriteSizeWidthInPixels();
+        this.posY = (int)(stateObs.getAvatarPosition(this.idAgent).y) / this.env.getSpriteSizeHeightInPixels();	
+	}
+	
+	private int posX, posY, idAgent;
+	private State lastState = null;
+	private ArrayList<Theory> theories, preloadedTheories, uselessTheories;
+	private ArrayList<State> knowledgeBase;
+	private ArrayList<Vector2d> targetPos;
+	private ArrayList<Integer> idObjetivTomados = new ArrayList<Integer>();
+	private Perception env;
+	private Strategy estrategia = new Strategy();
+
 }

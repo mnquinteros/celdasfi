@@ -77,17 +77,17 @@ public class Theory {
 		this.setEfectosPredichos(efectosPredichos.getStringState());// obtenerSituacionComoString(efectosPredichos));
 	}
 	
-	private String obtenerSituacionComoString(State situacion) {
-		char[][] casillerosSituacion = situacion.getMap();
-		String situacionString = "";
-		for (int fila = 0; fila < 6; fila++) {
-			for (int col = 0; col < 6; col++) {
-				situacionString += casillerosSituacion[fila][col];
-			}
-			situacionString += "|";
-		}
-		return situacionString;
-	}
+//	private String obtenerSituacionComoString(State situacion) {
+//		char[][] casillerosSituacion = situacion.getMap();
+//		String situacionString = "";
+//		for (int fila = 0; fila < 6; fila++) {
+//			for (int col = 0; col < 6; col++) {
+//				situacionString += casillerosSituacion[fila][col];
+//			}
+//			situacionString += "|";
+//		}
+//		return situacionString;
+//	}
 	
 	public int getIdSitCondicionInicial() {
 		return idSitCondicionInicial;
@@ -186,38 +186,6 @@ public class Theory {
 	
 	public State getSitEfectosPredichos() {
 		return new State(this.idSitEfectosPredichos, this.efectosPredichos);
-	}
-	
-//	public String toString() {
-//		StringBuilder builder = new StringBuilder();
-//		builder.append(this.id).append(",")
-//		.append(this.getCondicionInicial()).append(",")
-//		.append(this.getIdSitCondicionInicial()).append(",")
-//		.append(this.getAccionComoString()).append(",")
-//		.append(this.getEfectosPredichos()).append(",")
-//		.append(this.getIdSitEfectosPredichos()).append(",")
-//		.append(this.getK()).append(",")
-//		.append(this.getP()).append(",")
-//		.append(this.getU()).append("\n");
-//		
-//		return builder.toString();
-//	}
-	
-//	public static Theory deserialize(String item) {
-//		
-//		Theory result = new Theory();
-//		String[] elems =  item.split(",");
-//		result.setId(new Integer(elems[0]));
-//		result.setCondicionInicial(elems[1]);
-//		result.setIdSitCondicionInicial(new Integer(elems[2]));
-//		result.setAccion(elems[3]);
-//		result.setEfectosPredichos(elems[4]);
-//		result.setIdSitEfectosPredichos(new Integer(elems[5]));
-//		result.setK(new Double(elems[6]));
-//		result.setP(new Double(elems[7]));
-//		result.setU(new Double(elems[8]));
-//		
-//		return result;
-//	}	
+	}	
 
 }
