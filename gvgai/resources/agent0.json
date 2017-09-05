@@ -6,8 +6,8 @@
   "accion": "left",
   "efectosPredichos": "??w...|??w.w.|??w.1.|??wA..|??wwww|??????|",
   "idSitEfectosPredichos": 1,
-  "k": 11.0,
-  "p": 9.0,
+  "k": 18.0,
+  "p": 16.0,
   "u": 0.3125
 },
 {
@@ -39,7 +39,7 @@
   "accion": "down",
   "efectosPredichos": "?w...0|?w.w.w|?w.1B.|?w.A..|?wwwww|??????|",
   "idSitEfectosPredichos": 4,
-  "k": 6.0,
+  "k": 17.0,
   "p": 1.0,
   "u": 0.625
 },
@@ -622,7 +622,7 @@
   "accion": "right",
   "efectosPredichos": "w...0w|w.w.ww|w.1..w|w..ABw|wwwwww|??????|",
   "idSitEfectosPredichos": 34,
-  "k": 7.0,
+  "k": 20.0,
   "p": 1.0,
   "u": 0.7045970869120796
 },
@@ -655,8 +655,8 @@
   "accion": "right",
   "efectosPredichos": "...0w?|.w.ww?|.1.Bw?|...Aw?|wwwww?|??????|",
   "idSitEfectosPredichos": 37,
-  "k": 2.0,
-  "p": 2.0,
+  "k": 5.0,
+  "p": 5.0,
   "u": 0.7045970869120796
 },
 {
@@ -666,7 +666,7 @@
   "accion": "up",
   "efectosPredichos": "wwwww?|...0w?|.w.ww?|.1.Aw?|...Bw?|wwwww?|",
   "idSitEfectosPredichos": 38,
-  "k": 1.0,
+  "k": 2.0,
   "p": 1.0,
   "u": 0.7045970869120796
 },
@@ -1018,8 +1018,8 @@
   "accion": "up",
   "efectosPredichos": "??wwww|??w...|??w.w.|??wA1.|??w...|??wwww|",
   "idSitEfectosPredichos": 53,
-  "k": 25.0,
-  "p": 25.0,
+  "k": 30.0,
+  "p": 30.0,
   "u": 0.4365
 },
 {
@@ -1040,7 +1040,7 @@
   "accion": "right",
   "efectosPredichos": "?wwwww|?w...0|?w.w.w|?w.A1.|?w..B.|?wwwww|",
   "idSitEfectosPredichos": 54,
-  "k": 22.0,
+  "k": 27.0,
   "p": 1.0,
   "u": 0.7104508497187474
 },
@@ -1403,8 +1403,8 @@
   "accion": "right",
   "efectosPredichos": "?wwwww|?w...0|?w.w.w|?w.A1B|?w....|?wwwww|",
   "idSitEfectosPredichos": 69,
-  "k": 22.0,
-  "p": 21.0,
+  "k": 27.0,
+  "p": 26.0,
   "u": 0.7104508497187474
 },
 {
@@ -1414,8 +1414,8 @@
   "accion": "left",
   "efectosPredichos": "??wwww|??w...|??w.w.|??wA.1|??w...|??wwww|",
   "idSitEfectosPredichos": 70,
-  "k": 4.0,
-  "p": 4.0,
+  "k": 9.0,
+  "p": 9.0,
   "u": 0.1865
 },
 {
@@ -2107,8 +2107,8 @@
   "accion": "right",
   "efectosPredichos": "?w...0|?w.w.w|?w.1.B|?w.A..|?wwwww|??????|",
   "idSitEfectosPredichos": 3,
-  "k": 8.0,
-  "p": 8.0,
+  "k": 18.0,
+  "p": 18.0,
   "u": 0.7045970869120796
 },
 {
@@ -2118,8 +2118,8 @@
   "accion": "down",
   "efectosPredichos": "?w...0|?w.w.w|?w.1.B|?w.A..|?wwwww|??????|",
   "idSitEfectosPredichos": 3,
-  "k": 6.0,
-  "p": 5.0,
+  "k": 17.0,
+  "p": 16.0,
   "u": 0.625
 },
 {
@@ -2129,8 +2129,8 @@
   "accion": "up",
   "efectosPredichos": "?w...0|?w.w.w|?w.1.B|?w.A..|?wwwww|??????|",
   "idSitEfectosPredichos": 3,
-  "k": 4.0,
-  "p": 4.0,
+  "k": 18.0,
+  "p": 18.0,
   "u": 0.625
 },
 {
@@ -2140,8 +2140,8 @@
   "accion": "right",
   "efectosPredichos": "w...0w|w.w.ww|w.1.Bw|w..A.w|wwwwww|??????|",
   "idSitEfectosPredichos": 36,
-  "k": 7.0,
-  "p": 6.0,
+  "k": 20.0,
+  "p": 19.0,
   "u": 0.7045970869120796
 },
 {
@@ -2151,8 +2151,8 @@
   "accion": "up",
   "efectosPredichos": "wwwwww|w...0w|w.w.ww|w.1ABw|w....w|wwwwww|",
   "idSitEfectosPredichos": 86,
-  "k": 1.0,
-  "p": 1.0,
+  "k": 2.0,
+  "p": 2.0,
   "u": 0.7045970869120796
 },
 {
@@ -2162,8 +2162,8 @@
   "accion": "down",
   "efectosPredichos": "w...0w|w.w.ww|w.1.Bw|w..A.w|wwwwww|??????|",
   "idSitEfectosPredichos": 36,
-  "k": 1.0,
-  "p": 1.0,
+  "k": 2.0,
+  "p": 2.0,
   "u": 0.7045970869120796
 },
 {
@@ -2173,8 +2173,8 @@
   "accion": "left",
   "efectosPredichos": "?w...0|?w.w.w|?w.1.B|?w.A..|?wwwww|??????|",
   "idSitEfectosPredichos": 3,
-  "k": 7.0,
-  "p": 5.0,
+  "k": 20.0,
+  "p": 18.0,
   "u": 0.7045970869120796
 },
 {
@@ -2195,8 +2195,8 @@
   "accion": "left",
   "efectosPredichos": "??w...|??w.w.|??w.1.|??wA..|??wwww|??????|",
   "idSitEfectosPredichos": 1,
-  "k": 8.0,
-  "p": 7.0,
+  "k": 18.0,
+  "p": 17.0,
   "u": 0.1865
 },
 {
@@ -2206,8 +2206,8 @@
   "accion": "down",
   "efectosPredichos": "??w...|??w.w.|??w..1|??wA..|??wwww|??????|",
   "idSitEfectosPredichos": 87,
-  "k": 1.0,
-  "p": 1.0,
+  "k": 6.0,
+  "p": 6.0,
   "u": 0.4365
 },
 {
@@ -2239,8 +2239,8 @@
   "accion": "right",
   "efectosPredichos": "?w...0|?w.w.w|?w..1B|?w.A..|?wwwww|??????|",
   "idSitEfectosPredichos": 88,
-  "k": 2.0,
-  "p": 2.0,
+  "k": 7.0,
+  "p": 7.0,
   "u": 0.7104508497187474
 },
 {
@@ -2261,8 +2261,8 @@
   "accion": "right",
   "efectosPredichos": "w...0w|w.w.ww|w..1Bw|w..A.w|wwwwww|??????|",
   "idSitEfectosPredichos": 89,
-  "k": 18.0,
-  "p": 17.0,
+  "k": 23.0,
+  "p": 22.0,
   "u": 0.7104508497187474
 },
 {
@@ -2459,8 +2459,8 @@
   "accion": "down",
   "efectosPredichos": "??w...|??w.w.|??w.1.|??wA..|??wwww|??????|",
   "idSitEfectosPredichos": 1,
-  "k": 6.0,
-  "p": 6.0,
+  "k": 12.0,
+  "p": 12.0,
   "u": 0.3125
 },
 {
@@ -2514,8 +2514,8 @@
   "accion": "up",
   "efectosPredichos": "wwwwww|w...0w|w.w1ww|w..ABw|w....w|wwwwww|",
   "idSitEfectosPredichos": 91,
-  "k": 17.0,
-  "p": 16.0,
+  "k": 22.0,
+  "p": 21.0,
   "u": 0.7266941738241592
 },
 {
@@ -2723,8 +2723,8 @@
   "accion": "up",
   "efectosPredichos": "??????|wwwwww|w..10w|w.wAww|w...Bw|w....w|",
   "idSitEfectosPredichos": 97,
-  "k": 17.0,
-  "p": 16.0,
+  "k": 22.0,
+  "p": 21.0,
   "u": 0.745
 },
 {
@@ -2745,8 +2745,8 @@
   "accion": "left",
   "efectosPredichos": "??????|wwwwww|w..10w|w.wAww|w...Bw|w....w|",
   "idSitEfectosPredichos": 97,
-  "k": 21.0,
-  "p": 21.0,
+  "k": 23.0,
+  "p": 23.0,
   "u": 0.625
 },
 {
@@ -2756,8 +2756,8 @@
   "accion": "up",
   "efectosPredichos": "??????|wwwwww|w..10w|w.wAww|w...Bw|w....w|",
   "idSitEfectosPredichos": 97,
-  "k": 14.0,
-  "p": 14.0,
+  "k": 19.0,
+  "p": 19.0,
   "u": 0.625
 },
 {
@@ -2767,8 +2767,8 @@
   "accion": "right",
   "efectosPredichos": "??????|wwwwww|w..10w|w.wAww|w...Bw|w....w|",
   "idSitEfectosPredichos": 97,
-  "k": 20.0,
-  "p": 20.0,
+  "k": 25.0,
+  "p": 25.0,
   "u": 0.625
 },
 {
@@ -2778,8 +2778,8 @@
   "accion": "down",
   "efectosPredichos": "wwwwww|w..10w|w.w.ww|w..ABw|w....w|wwwwww|",
   "idSitEfectosPredichos": 98,
-  "k": 27.0,
-  "p": 27.0,
+  "k": 39.0,
+  "p": 39.0,
   "u": 0.745
 },
 {
@@ -2789,8 +2789,8 @@
   "accion": "right",
   "efectosPredichos": "wwwwww|w..10w|w.w.ww|w..ABw|w....w|wwwwww|",
   "idSitEfectosPredichos": 98,
-  "k": 8.0,
-  "p": 8.0,
+  "k": 16.0,
+  "p": 16.0,
   "u": 0.625
 },
 {
@@ -2800,8 +2800,8 @@
   "accion": "left",
   "efectosPredichos": "?wwwww|?w..10|?w.w.w|?w.A.B|?w....|?wwwww|",
   "idSitEfectosPredichos": 99,
-  "k": 17.0,
-  "p": 17.0,
+  "k": 30.0,
+  "p": 30.0,
   "u": 0.745
 },
 {
@@ -2811,8 +2811,8 @@
   "accion": "right",
   "efectosPredichos": "wwwwww|w..10w|w.w.ww|w..ABw|w....w|wwwwww|",
   "idSitEfectosPredichos": 98,
-  "k": 13.0,
-  "p": 12.0,
+  "k": 23.0,
+  "p": 22.0,
   "u": 0.745
 },
 {
@@ -2822,8 +2822,8 @@
   "accion": "down",
   "efectosPredichos": "?w..10|?w.w.w|?w...B|?w.A..|?wwwww|??????|",
   "idSitEfectosPredichos": 100,
-  "k": 17.0,
-  "p": 17.0,
+  "k": 25.0,
+  "p": 25.0,
   "u": 0.745
 },
 {
@@ -2833,8 +2833,8 @@
   "accion": "down",
   "efectosPredichos": "?w..10|?w.w.w|?w...B|?w.A..|?wwwww|??????|",
   "idSitEfectosPredichos": 100,
-  "k": 14.0,
-  "p": 14.0,
+  "k": 20.0,
+  "p": 20.0,
   "u": 0.625
 },
 {
@@ -2844,8 +2844,8 @@
   "accion": "right",
   "efectosPredichos": "w..10w|w.w.ww|w...Bw|w..A.w|wwwwww|??????|",
   "idSitEfectosPredichos": 101,
-  "k": 12.0,
-  "p": 12.0,
+  "k": 25.0,
+  "p": 25.0,
   "u": 0.745
 },
 {
@@ -2855,8 +2855,8 @@
   "accion": "left",
   "efectosPredichos": "?w..10|?w.w.w|?w...B|?w.A..|?wwwww|??????|",
   "idSitEfectosPredichos": 100,
-  "k": 23.0,
-  "p": 23.0,
+  "k": 38.0,
+  "p": 38.0,
   "u": 0.745
 },
 {
@@ -2877,8 +2877,8 @@
   "accion": "left",
   "efectosPredichos": "??w..1|??w.w.|??w...|??wA..|??wwww|??????|",
   "idSitEfectosPredichos": 102,
-  "k": 29.0,
-  "p": 29.0,
+  "k": 37.0,
+  "p": 37.0,
   "u": 0.1865
 },
 {
@@ -2899,8 +2899,8 @@
   "accion": "up",
   "efectosPredichos": "??wwww|??w..1|??w.w.|??wA..|??w...|??wwww|",
   "idSitEfectosPredichos": 103,
-  "k": 23.0,
-  "p": 23.0,
+  "k": 28.0,
+  "p": 28.0,
   "u": 0.4365
 },
 {
@@ -2910,8 +2910,8 @@
   "accion": "left",
   "efectosPredichos": "??wwww|??w..1|??w.w.|??wA..|??w...|??wwww|",
   "idSitEfectosPredichos": 103,
-  "k": 18.0,
-  "p": 17.0,
+  "k": 26.0,
+  "p": 25.0,
   "u": 0.3125
 },
 {
@@ -2921,8 +2921,8 @@
   "accion": "down",
   "efectosPredichos": "??w..1|??w.w.|??w...|??wA..|??wwww|??????|",
   "idSitEfectosPredichos": 102,
-  "k": 13.0,
-  "p": 13.0,
+  "k": 17.0,
+  "p": 17.0,
   "u": 0.4365
 },
 {
@@ -2932,8 +2932,8 @@
   "accion": "left",
   "efectosPredichos": "??w..1|??w.w.|??w...|??wA..|??wwww|??????|",
   "idSitEfectosPredichos": 102,
-  "k": 12.0,
-  "p": 12.0,
+  "k": 19.0,
+  "p": 19.0,
   "u": 0.3125
 },
 {
@@ -2943,8 +2943,8 @@
   "accion": "down",
   "efectosPredichos": "??w..1|??w.w.|??w...|??wA..|??wwww|??????|",
   "idSitEfectosPredichos": 102,
-  "k": 16.0,
-  "p": 16.0,
+  "k": 18.0,
+  "p": 18.0,
   "u": 0.3125
 },
 {
@@ -2954,8 +2954,8 @@
   "accion": "right",
   "efectosPredichos": "?w..10|?w.w.w|?w...B|?w.A..|?wwwww|??????|",
   "idSitEfectosPredichos": 100,
-  "k": 19.0,
-  "p": 18.0,
+  "k": 26.0,
+  "p": 25.0,
   "u": 0.745
 },
 {
@@ -2965,8 +2965,8 @@
   "accion": "up",
   "efectosPredichos": "?wwwww|?w..10|?w.w.w|?w.A.B|?w....|?wwwww|",
   "idSitEfectosPredichos": 99,
-  "k": 18.0,
-  "p": 17.0,
+  "k": 27.0,
+  "p": 26.0,
   "u": 0.745
 },
 {
@@ -2976,8 +2976,8 @@
   "accion": "left",
   "efectosPredichos": "??wwww|??w..1|??w.w.|??wA..|??w...|??wwww|",
   "idSitEfectosPredichos": 103,
-  "k": 19.0,
-  "p": 19.0,
+  "k": 30.0,
+  "p": 30.0,
   "u": 0.1865
 },
 {
@@ -2998,8 +2998,8 @@
   "accion": "up",
   "efectosPredichos": "wwwwww|w..10w|w.w.ww|w..ABw|w....w|wwwwww|",
   "idSitEfectosPredichos": 98,
-  "k": 11.0,
-  "p": 11.0,
+  "k": 26.0,
+  "p": 26.0,
   "u": 0.745
 },
 {
@@ -3009,8 +3009,8 @@
   "accion": "up",
   "efectosPredichos": "??????|wwwwww|w..10w|w.wAww|w...Bw|w....w|",
   "idSitEfectosPredichos": 97,
-  "k": 11.0,
-  "p": 11.0,
+  "k": 18.0,
+  "p": 18.0,
   "u": 0.745
 },
 {
@@ -3020,8 +3020,8 @@
   "accion": "down",
   "efectosPredichos": "w..10w|w.w.ww|w...Bw|w..A.w|wwwwww|??????|",
   "idSitEfectosPredichos": 101,
-  "k": 23.0,
-  "p": 23.0,
+  "k": 40.0,
+  "p": 40.0,
   "u": 0.745
 },
 {
@@ -3031,8 +3031,8 @@
   "accion": "down",
   "efectosPredichos": "w..10w|w.w.ww|w...Bw|w..A.w|wwwwww|??????|",
   "idSitEfectosPredichos": 101,
-  "k": 13.0,
-  "p": 13.0,
+  "k": 30.0,
+  "p": 30.0,
   "u": 0.625
 },
 {
@@ -3053,8 +3053,8 @@
   "accion": "up",
   "efectosPredichos": "?wwwww|?w..10|?w.w.w|?w.A.B|?w....|?wwwww|",
   "idSitEfectosPredichos": 99,
-  "k": 13.0,
-  "p": 13.0,
+  "k": 24.0,
+  "p": 24.0,
   "u": 0.625
 },
 {
@@ -3075,8 +3075,8 @@
   "accion": "up",
   "efectosPredichos": "??????|??wwww|??w..1|??wAw.|??w...|??w...|",
   "idSitEfectosPredichos": 104,
-  "k": 34.0,
-  "p": 34.0,
+  "k": 49.0,
+  "p": 49.0,
   "u": 0.4365
 },
 {
@@ -3086,8 +3086,8 @@
   "accion": "up",
   "efectosPredichos": "??????|??????|??wwww|??wA.1|??w.w.|??w...|",
   "idSitEfectosPredichos": 105,
-  "k": 28.0,
-  "p": 27.0,
+  "k": 44.0,
+  "p": 43.0,
   "u": 0.4365
 },
 {
@@ -3097,8 +3097,8 @@
   "accion": "down",
   "efectosPredichos": "??????|??wwww|??w..1|??wAw.|??w...|??w...|",
   "idSitEfectosPredichos": 104,
-  "k": 12.0,
-  "p": 12.0,
+  "k": 23.0,
+  "p": 23.0,
   "u": 0.4365
 },
 {
@@ -3130,8 +3130,8 @@
   "accion": "left",
   "efectosPredichos": "??????|??wwww|??w..1|??wAw.|??w...|??w...|",
   "idSitEfectosPredichos": 104,
-  "k": 10.0,
-  "p": 9.0,
+  "k": 28.0,
+  "p": 27.0,
   "u": 0.3125
 },
 {
@@ -3141,8 +3141,8 @@
   "accion": "down",
   "efectosPredichos": "??wwww|??w..1|??w.w.|??wA..|??w...|??wwww|",
   "idSitEfectosPredichos": 103,
-  "k": 20.0,
-  "p": 18.0,
+  "k": 30.0,
+  "p": 28.0,
   "u": 0.4365
 },
 {
@@ -3152,8 +3152,8 @@
   "accion": "right",
   "efectosPredichos": "?wwwww|?w..10|?w.w.w|?w.A.B|?w....|?wwwww|",
   "idSitEfectosPredichos": 99,
-  "k": 15.0,
-  "p": 15.0,
+  "k": 22.0,
+  "p": 22.0,
   "u": 0.745
 },
 {
@@ -3163,8 +3163,8 @@
   "accion": "right",
   "efectosPredichos": "??????|??wwww|??w..1|??wAw.|??w...|??w...|",
   "idSitEfectosPredichos": 104,
-  "k": 11.0,
-  "p": 11.0,
+  "k": 20.0,
+  "p": 20.0,
   "u": 0.3125
 },
 {
@@ -3185,8 +3185,8 @@
   "accion": "right",
   "efectosPredichos": "..10w?|.w.ww?|...Bw?|...Aw?|wwwww?|??????|",
   "idSitEfectosPredichos": 106,
-  "k": 14.0,
-  "p": 13.0,
+  "k": 26.0,
+  "p": 25.0,
   "u": 0.745
 },
 {
@@ -3196,8 +3196,8 @@
   "accion": "down",
   "efectosPredichos": "..10w?|.w.ww?|...Bw?|...Aw?|wwwww?|??????|",
   "idSitEfectosPredichos": 106,
-  "k": 11.0,
-  "p": 11.0,
+  "k": 23.0,
+  "p": 23.0,
   "u": 0.625
 },
 {
@@ -3207,8 +3207,8 @@
   "accion": "right",
   "efectosPredichos": "..10w?|.w.ww?|...Bw?|...Aw?|wwwww?|??????|",
   "idSitEfectosPredichos": 106,
-  "k": 9.0,
-  "p": 9.0,
+  "k": 19.0,
+  "p": 19.0,
   "u": 0.625
 },
 {
@@ -3229,8 +3229,8 @@
   "accion": "left",
   "efectosPredichos": "w..10w|w.w.ww|w...Bw|w..A.w|wwwwww|??????|",
   "idSitEfectosPredichos": 101,
-  "k": 12.0,
-  "p": 12.0,
+  "k": 24.0,
+  "p": 24.0,
   "u": 0.745
 },
 {
@@ -3240,8 +3240,8 @@
   "accion": "up",
   "efectosPredichos": "..10w?|.w.ww?|...Bw?|...Aw?|wwwww?|??????|",
   "idSitEfectosPredichos": 106,
-  "k": 11.0,
-  "p": 10.0,
+  "k": 19.0,
+  "p": 18.0,
   "u": 0.625
 },
 {
@@ -3251,8 +3251,8 @@
   "accion": "right",
   "efectosPredichos": "??????|??????|?wwwww|?w.A10|?w.w.w|?w...B|",
   "idSitEfectosPredichos": 107,
-  "k": 26.0,
-  "p": 23.0,
+  "k": 35.0,
+  "p": 32.0,
   "u": 0.745
 },
 {
@@ -3317,8 +3317,8 @@
   "accion": "up",
   "efectosPredichos": "??????|??????|?wwwww|?w.A10|?w.w.w|?w...B|",
   "idSitEfectosPredichos": 107,
-  "k": 9.0,
-  "p": 9.0,
+  "k": 13.0,
+  "p": 13.0,
   "u": 0.625
 },
 {
@@ -3328,8 +3328,8 @@
   "accion": "left",
   "efectosPredichos": "??????|??????|??wwww|??wA.1|??w.w.|??w...|",
   "idSitEfectosPredichos": 105,
-  "k": 7.0,
-  "p": 7.0,
+  "k": 11.0,
+  "p": 11.0,
   "u": 0.1865
 },
 {
@@ -3339,8 +3339,8 @@
   "accion": "up",
   "efectosPredichos": "??????|??????|??wwww|??wA.1|??w.w.|??w...|",
   "idSitEfectosPredichos": 105,
-  "k": 6.0,
-  "p": 6.0,
+  "k": 13.0,
+  "p": 13.0,
   "u": 0.3125
 },
 {
@@ -3350,8 +3350,8 @@
   "accion": "left",
   "efectosPredichos": "??????|??????|??wwww|??wA.1|??w.w.|??w...|",
   "idSitEfectosPredichos": 105,
-  "k": 11.0,
-  "p": 11.0,
+  "k": 22.0,
+  "p": 22.0,
   "u": 0.3125
 },
 {
@@ -3361,8 +3361,8 @@
   "accion": "down",
   "efectosPredichos": "??????|??????|?wwwww|?w.A10|?w.w.w|?w...B|",
   "idSitEfectosPredichos": 107,
-  "k": 16.0,
-  "p": 16.0,
+  "k": 25.0,
+  "p": 25.0,
   "u": 0.625
 },
 {
@@ -3394,8 +3394,8 @@
   "accion": "left",
   "efectosPredichos": "w...0w|w.w.ww|w.1.Bw|w..A.w|wwwwww|??????|",
   "idSitEfectosPredichos": 36,
-  "k": 2.0,
-  "p": 1.0,
+  "k": 5.0,
+  "p": 4.0,
   "u": 0.7045970869120796
 },
 {
@@ -3419,5 +3419,27 @@
   "k": 2.0,
   "p": 2.0,
   "u": 0.3125
+},
+{
+  "id": 321,
+  "condicionInicial": "w...0w|w.w.ww|w.1.Bw|w..A.w|wwwwww|??????|",
+  "idSitCondicionInicial": 36,
+  "accion": "down",
+  "efectosPredichos": "w...0w|w.w.ww|w.1.Bw|w..A.w|wwwwww|??????|",
+  "idSitEfectosPredichos": 36,
+  "k": 1.0,
+  "p": 1.0,
+  "u": 0.0625
+},
+{
+  "id": 322,
+  "condicionInicial": "...0w?|.w.ww?|.1.Bw?|...Aw?|wwwww?|??????|",
+  "idSitCondicionInicial": 37,
+  "accion": "up",
+  "efectosPredichos": "...0w?|.w.ww?|.1.Bw?|...Aw?|wwwww?|??????|",
+  "idSitEfectosPredichos": 37,
+  "k": 2.0,
+  "p": 1.0,
+  "u": 0.0625
 }
 ]
