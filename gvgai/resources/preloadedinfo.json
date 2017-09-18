@@ -5,7 +5,7 @@
   "idSitCondicionInicial": 1,
   "accion": "up",
   "efectosPredichos": "wwwwww|w...0w|w.w.ww|wA1.Bw|w....w|wwwwww|",
-  "idSitEfectosPredichos": 2,
+  "idSitEfectosPredichos": 1,
   "k": 15.0,
   "p": 10.0,
   "u": 0.9365
@@ -16,7 +16,7 @@
   "idSitCondicionInicial": 2,
   "accion": "right",
   "efectosPredichos": "wwwwww|w...0w|w.w.ww|w.A1Bw|w....w|wwwwww|",
-  "idSitEfectosPredichos": 3,
+  "idSitEfectosPredichos": 2,
   "k": 1.0,
   "p": 1.0,
   "u": 0.8125
@@ -27,9 +27,9 @@
   "idSitCondicionInicial": 3,
   "accion": "right",
   "efectosPredichos": "wwwwww|w...0w|w.w.ww|w.A1Bw|w....w|wwwwww|",
-  "idSitEfectosPredichos": 3,
-  "k": 0.0,
-  "p": 0.0,
+  "idSitEfectosPredichos": 2,
+  "k": 10.0,
+  "p": 10.0,
   "u": 0.0
 },
 {
@@ -46,21 +46,21 @@
 {
   "id": 5,
   "condicionInicial": "wwwwww|w...0w|w.w.ww|w.A1.w|w...Bw|wwwwww|",
-  "idSitCondicionInicial": 3,
-  "accion": "right",
+  "idSitCondicionInicial": 4,
+  "accion": "nil",
   "efectosPredichos": "wwwwww|w...0w|w.w.ww|w.A1.w|w...Bw|wwwwww|",
-  "idSitEfectosPredichos": 4,
+  "idSitEfectosPredichos": 3,
   "k": 0.0,
   "p": 0.0,
   "u": 0.0
 },
 {
   "id": 6,
-  "condicionInicial": "wwwwww|w...0w|w.w.ww|w.A1.w|w...Bw|wwwwww|",
-  "idSitCondicionInicial": 4,
+  "condicionInicial": "wwwwww|w...0w|w.w.ww|w.A1.w|w..B.w|wwwwww|",
+  "idSitCondicionInicial": 5,
   "accion": "up",
   "efectosPredichos": "wwwwww|w...0w|w.w1ww|w.AB.w|w....w|wwwwww|",
-  "idSitEfectosPredichos": 7,
+  "idSitEfectosPredichos": 4,
   "k": 15.0,
   "p": 10.0,
   "u": 0.7045
@@ -68,21 +68,21 @@
 {
   "id": 7,
   "condicionInicial": "wwwwww|w...0w|w.w1ww|w.AB.w|w....w|wwwwww|",
-  "idSitCondicionInicial": 4,
+  "idSitCondicionInicial": 6,
   "accion": "up",
   "efectosPredichos": "wwwwww|w..10w|w.wBww|w.A..w|w....w|wwwwww|",
-  "idSitEfectosPredichos": 8,
+  "idSitEfectosPredichos":5,
   "k": 15.0,
   "p": 10.0,
   "u": 0.7045
 },
 {
   "id": 8,
-  "condicionInicial": "wwwwww|w...0w|w.w1ww|w.AB.w|w....w|wwwwww|",
-  "idSitCondicionInicial": 4,
-  "accion": "up",
-  "efectosPredichos": "wwwwww|w..10w|w.wBww|w.A..w|w....w|wwwwww|",
-  "idSitEfectosPredichos": 7,
+  "condicionInicial": "wwwwww|w..10w|w.wBww|w.A..w|w....w|wwwwww|",
+  "idSitCondicionInicial": 7,
+  "accion": "left",
+  "efectosPredichos": "wwwwww|w..10w|w.wBww|wA...w|w....w|wwwwww|",
+  "idSitEfectosPredichos": 6,
   "k": 15.0,
   "p": 10.0,
   "u": 0.7045
@@ -90,12 +90,123 @@
 {
   "id": 9,
   "condicionInicial": "wwwwww|w...0w|w.w.ww|w.A1.w|w...Bw|wwwwww|",
-  "idSitCondicionInicial": 9,
-  "accion": "right",
-  "efectosPredichos": "wwwwww|w...0w|w.w.ww|w.A1.w|w...Bw|wwwwww|",
+  "idSitCondicionInicial": 4,
+  "accion": "left",
+  "efectosPredichos": "wwwwww|w...0w|w.w.ww|w.A1.w|w..B.w|wwwwww|",
+  "idSitEfectosPredichos": 7,
+  "k": 10.0,
+  "p": 10.0,
+  "u": 0.75
+},
+{
+  "id": 10,
+  "condicionInicial": "wwwwww|w...0w|w.w.ww|w..1Bw|wA...w|wwwwww|",
+  "idSitCondicionInicial": 8,
+  "accion": "down",
+  "efectosPredichos": "wwwwww|w...0w|w.w.ww|w..1.w|wA..Bw|wwwwww|",
+  "idSitEfectosPredichos": 8,
+  "k": 10.0,
+  "p": 10.0,
+  "u": 0.75
+},
+{
+  "id": 11,
+  "condicionInicial": "wwwwww|w...0w|w.w.ww|w..1Bw|wA...w|wwwwww|",
+  "idSitCondicionInicial": 8,
+  "accion": "left",
+  "efectosPredichos": "wwwwww|w...0w|w.w.ww|w.1B.w|wA...w|wwwwww|",
   "idSitEfectosPredichos": 9,
-  "k": 0.0,
+  "k": 20.0,
   "p": 0.0,
   "u": 0.0
+},
+{
+  "id": 12,
+  "condicionInicial": "wwwwww|w...0w|w.w.ww|w.1B.w|wA...w|wwwwww|",
+  "idSitCondicionInicial": 9,
+  "accion": "left",
+  "efectosPredichos": "wwwwww|w...0w|w.w.ww|w1B..w|wA...w|wwwwww|",
+  "idSitEfectosPredichos": 10,
+  "k": 20.0,
+  "p": 0.0,
+  "u": 0.0
+},
+{
+  "id": 13,
+  "condicionInicial": "wwwwww|w...0w|w.w.ww|wB1..w|wA...w|wwwwww|",
+  "idSitCondicionInicial": 10,
+  "accion": "right",
+  "efectosPredichos": "wwwwww|w...0w|w.w.ww|w.B1.w|wA...w|wwwwww|",
+  "idSitEfectosPredichos": 11,
+  "k": 20.0,
+  "p": 20.0,
+  "u": 0.75
+},
+{
+  "id": 14,
+  "condicionInicial": "wwwwww|w...0w|w.w.ww|w.B1.w|wA...w|wwwwww|",
+  "idSitCondicionInicial": 11,
+  "accion": "right",
+  "efectosPredichos": "wwwwww|w...0w|w.w.ww|w..B1w|wA...w|wwwwww|",
+  "idSitEfectosPredichos": 12,
+  "k": 200.0,
+  "p": 0.0,
+  "u": 0.0
+},
+{
+  "id": 15,
+  "condicionInicial": "wwwwww|w...0w|w.w.ww|w.B1.w|wA...w|wwwwww|",
+  "idSitCondicionInicial": 11,
+  "accion": "down",
+  "efectosPredichos": "wwwwww|w...0w|w.w.ww|w..1.w|wAB..w|wwwwww|",
+  "idSitEfectosPredichos": 13,
+  "k": 200.0,
+  "p": 200.0,
+  "u": 0.78
+},
+{
+  "id": 16,
+  "condicionInicial": "wwwwww|w...0w|w.w.ww|w..1.w|wAB..w|wwwwww|",
+  "idSitCondicionInicial": 12,
+  "accion": "right",
+  "efectosPredichos": "wwwwww|w...0w|w.w.ww|w..1.w|wA.B.w|wwwwww|",
+  "idSitEfectosPredichos": 14,
+  "k": 20.0,
+  "p": 20.0,
+  "u": 0.70
+},
+{
+  "id": 17,
+  "condicionInicial": "wwwwww|w...0w|w.w.ww|w..1.w|wA.B.w|wwwwww|",
+  "idSitCondicionInicial": 13,
+  "accion": "up",
+  "efectosPredichos": "wwwwww|w...0w|w.w1ww|w..B.w|wA...w|wwwwww|",
+  "idSitEfectosPredichos": 15,
+  "k": 20.0,
+  "p": 20.0,
+  "u": 0.70
+},
+{
+  "id": 18,
+  "condicionInicial": "wwwwww|wB..0w|w.w.ww|w.1..w|wA...w|wwwwww|",
+  "idSitCondicionInicial": 14,
+  "accion": "down",
+  "efectosPredichos": "wwwwww|w...0w|wBw.ww|w.1..w|wA...w|wwwwww|",
+  "idSitEfectosPredichos": 16,
+  "k": 20.0,
+  "p": 20.0,
+  "u": 0.70
+},
+{
+  "id": 19,
+  "condicionInicial": "wwwwww|w...0w|wBw.ww|w.1..w|wA...w|wwwwww|",
+  "idSitCondicionInicial": 15,
+  "accion": "down",
+  "efectosPredichos": "wwwwww|w...0w|w.w.ww|wB1..w|wA...w|wwwwww|",
+  "idSitEfectosPredichos": 17,
+  "k": 20.0,
+  "p": 20.0,
+  "u": 0.75
 }
+
 ]
