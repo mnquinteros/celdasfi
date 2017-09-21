@@ -146,23 +146,23 @@
   "id": 14,
   "condicionInicial": "wwwwww|w...0w|w.w.ww|w.B1.w|wA...w|wwwwww|",
   "idSitCondicionInicial": 11,
-  "accion": "right",
-  "efectosPredichos": "wwwwww|w...0w|w.w.ww|w..B1w|wA...w|wwwwww|",
-  "idSitEfectosPredichos": 12,
-  "k": 200.0,
-  "p": 0.0,
-  "u": 0.0
-},
-{
-  "id": 15,
-  "condicionInicial": "wwwwww|w...0w|w.w.ww|w.B1.w|wA...w|wwwwww|",
-  "idSitCondicionInicial": 11,
   "accion": "down",
   "efectosPredichos": "wwwwww|w...0w|w.w.ww|w..1.w|wAB..w|wwwwww|",
   "idSitEfectosPredichos": 13,
   "k": 200.0,
   "p": 200.0,
   "u": 0.78
+},
+{
+  "id": 15,
+  "condicionInicial": "wwwwww|w...0w|w.w.ww|w.B1.w|wA...w|wwwwww|",
+  "idSitCondicionInicial": 11,
+  "accion": "right",
+  "efectosPredichos": "wwwwww|w...0w|w.w.ww|w..B1w|wA...w|wwwwww|",
+  "idSitEfectosPredichos": 12,
+  "k": 200.0,
+  "p": 200.0,
+  "u": 0.0
 },
 {
   "id": 16,
