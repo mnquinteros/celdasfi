@@ -98,7 +98,6 @@ public class Agent extends AbstractMultiPlayer {
 				State EPTeoriaLocal = teoriaLocal.getSitEfectosPredichos();
 
 				Theory teoriaSimilar = todasLasTeoriasSimilares.get(0);
-				Theory teoriaSimilarConMaxUtil = UtililyCalculator.obtenerTeoriaConMayorUtilidad(todasLasTeoriasSimilares);
 				
 				State EPTeoriaSimilar = teoriaSimilar.getSitEfectosPredichos();
 				
@@ -117,7 +116,7 @@ public class Agent extends AbstractMultiPlayer {
 				double KTeoriasSimilares = teoriaSimilar.getK();
 				double nuevoKTeoriasSimilares;
 
-				if ( false ) {
+				if ( EPTeoriaMutante != null ) {
 
 					double utilidadTeoriaMutante = 0.0;
 					

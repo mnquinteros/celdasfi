@@ -119,7 +119,7 @@ public class State {
 		char[][] situacionEnCasilleros = this.getMap();
 		char[][] situacionPropuestaEnCasilleros = situacion.getMap();
 
-		if (situacionEnCasilleros[3][3] != situacionPropuestaEnCasilleros[3][3])
+		if (situacionEnCasilleros != situacionPropuestaEnCasilleros)
 			return null;
 		
 		int cantSimbolosRepetidos = 0;
