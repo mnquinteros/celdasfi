@@ -14,22 +14,22 @@ public class CompetitionParameters
     /**
      * Milliseconds allowed per controller action.
      */
-    public static int ACTION_TIME = 100;
+    public static int ACTION_TIME = 300;
 
     /**
      * Millisecd g	conds for controller disqualification, if it returns an action after this time.
      */
-    public static int ACTION_TIME_DISQ = 500;
+    public static int ACTION_TIME_DISQ = 1500;
 
     /**
      * Milliseconds allowed for controller initialization.
      */
-    public static int INITIALIZATION_TIME = 1000;
+    public static int INITIALIZATION_TIME = 2000;
 
     /**
      * Milliseconds allowed for controller tear down.
      */
-    public static int TEAR_DOWN_TIME = 100;
+    public static int TEAR_DOWN_TIME = 300;
 
     /**
      * Milliseconds allowed for the level generator to generate a level
@@ -66,7 +66,7 @@ public class CompetitionParameters
     /**
      * Max time a game can run
      */
-    public static int MAX_TIMESTEPS = 1500;
+    public static int MAX_TIMESTEPS = 1000;
 
     /**
      * Terminates the program when the playing window is closed

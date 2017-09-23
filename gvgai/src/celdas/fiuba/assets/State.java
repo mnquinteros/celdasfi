@@ -75,7 +75,7 @@ public class State {
 				if (elem == '?') {
 					//do nothing
 				} else if (elem == 'P') {
-					if (!( other == 'A' || other == 'B' || other == 'Y' || other == 'Z')) {
+				  if (!( other == 'A' || other == 'B' || other == 'Y' || other == 'Z')) {
 						return false;
 					}
 				} else if (elem =='Q') {
@@ -119,7 +119,7 @@ public class State {
 		char[][] situacionEnCasilleros = this.getMap();
 		char[][] situacionPropuestaEnCasilleros = situacion.getMap();
 
-		if (situacionEnCasilleros != situacionPropuestaEnCasilleros)
+		if (situacionEnCasilleros[3][3] != situacionPropuestaEnCasilleros[3][3])
 			return null;
 		
 		int cantSimbolosRepetidos = 0;
